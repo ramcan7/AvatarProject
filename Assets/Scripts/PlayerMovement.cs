@@ -17,6 +17,6 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        rb.linearVelocity = moveInput * speed;
+        rb.linearVelocity = moveInput.normalized * speed;
     }
 }
