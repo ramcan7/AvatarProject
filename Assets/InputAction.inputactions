@@ -203,10 +203,10 @@
                 {
                     "name": "",
                     "id": "2ce14e70-5e37-4ffc-94e9-09a912500748",
-                    "path": "",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Keyboard&Mouse",
                     "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
