@@ -4,8 +4,8 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private PlayerStateMachine stateMachine;
-    private Vector2 _moveInput;
     [SerializeField] private float speed = 5f;
+    private Vector2 _moveInput;
     private Rigidbody2D _rb;
     
     private void Awake() {
@@ -13,8 +13,15 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void OnMove(InputValue value) {
-        stateMachine.ChangeState(PlayerState.Moving);
         _moveInput = value.Get<Vector2>();
+        if (_moveInput.x != 0 || _moveInput.y != 0)
+        {
+            stateMachine.SetState(PlayerState.Running);
+        }
+        else
+        {
+            stateMachine.SetState(PlayerState.Idle);
+        }
     }
 
     private void FixedUpdate() {
