@@ -18,6 +18,6 @@ public class PlayerAnimatorController : MonoBehaviour
     private void HandleStateChanged(PlayerState state)
     {
         animator.SetBool("isRunning", state == PlayerState.Running);
-        
+        animator.SetBool("isAttacking", state == PlayerState.Attacking);
     }
 }

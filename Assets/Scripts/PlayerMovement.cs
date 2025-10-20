@@ -14,14 +14,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnMove(InputValue value) {
         _moveInput = value.Get<Vector2>();
+        PlayerState state;
         if (_moveInput.x != 0 || _moveInput.y != 0)
         {
-            stateMachine.SetState(PlayerState.Running);
+            state = PlayerState.Running;
         }
         else
         {
-            stateMachine.SetState(PlayerState.Idle);
+            state = PlayerState.Idle;
         }
+        
+        if(stateMachine.CanTransitionTo(state))
+            stateMachine.SetState(state);
     }
 
     private void FixedUpdate() {

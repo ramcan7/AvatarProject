@@ -16,4 +16,18 @@ public class PlayerStateMachine : MonoBehaviour
         // alert about change
         OnStateChanged?.Invoke(CurrentState);
     }
+    
+    public bool Is(PlayerState state) => CurrentState == state;
+
+    public bool CanTransitionTo(PlayerState state)
+    {
+        var canTransition = state switch
+        {
+            PlayerState.Idle => CurrentState == PlayerState.Running,
+            PlayerState.Running => CurrentState == PlayerState.Idle,
+            PlayerState.Attacking => true,
+            _ => false
+        };
+        return canTransition;
+    } 
 }
