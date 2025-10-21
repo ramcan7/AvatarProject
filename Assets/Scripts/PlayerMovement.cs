@@ -24,8 +24,7 @@ public class PlayerMovement : MonoBehaviour
             state = PlayerState.Idle;
         }
         
-        if(stateMachine.CanTransitionTo(state))
-            stateMachine.SetState(state);
+        stateMachine.SetState(state);
     }
 
     private void FixedUpdate() {
