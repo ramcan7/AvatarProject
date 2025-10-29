@@ -7,6 +7,7 @@ public class PlayerAttack : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private PlayerStateMachine stateMachine;
+    [SerializeField] private HitboxController hitboxController;
 
     [Header("Attack Settings")]
     [SerializeField] private float attackDuration = 0.35f;
@@ -20,12 +21,22 @@ public class PlayerAttack : MonoBehaviour
             StartCoroutine(AttackRoutine());
         }
     }
-    
+
     private IEnumerator AttackRoutine()
     {
         isAttacking = true;
         yield return new WaitForSeconds(attackDuration);
         isAttacking = false;
         stateMachine.TrySetState(PlayerState.Idle);
+    }
+
+    public void OnAttackHitboxStart()
+    {
+        hitboxController.EnableHitbox();
+    }
+
+    public void OnAttackHitboxEnd()
+    {
+        hitboxController.DisableHitbox();
     }
 }
