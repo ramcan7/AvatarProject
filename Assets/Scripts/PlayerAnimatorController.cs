@@ -20,5 +20,6 @@ public class PlayerAnimatorController : MonoBehaviour
         Debug.Log($"Animator reacting to state: {state}");
         animator.SetBool("isAttacking", state == PlayerState.Attacking);
         animator.SetBool("isRunning", state == PlayerState.Running);
+        animator.SetBool("isJumping", state == PlayerState.Jumping); 
     }
 }

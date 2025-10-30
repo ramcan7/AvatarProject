@@ -82,7 +82,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HitboxController
   damage: 10
-  knockbackForce: 5
+  knockbackForce: 2
   hitLayers:
     serializedVersion: 2
     m_Bits: 128
@@ -275,7 +275,8 @@ MonoBehaviour:
   stateMachine: {fileID: 519110213277078174}
   rb: {fileID: 6954071756838534500}
   speed: 3
-  jumpImpulse: 5
+  jumpImpulse: 20
+  raycastDistance: 0.2
   stopMomentumOnAttack: 1
   foot: {fileID: 6472460191122596163}
   groundMask:
