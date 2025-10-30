@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PlayerState { Idle, Running, Attacking }
+public enum PlayerState { Idle, Running, Attacking, Jumping }
 
 public class PlayerStateMachine : MonoBehaviour
 {
