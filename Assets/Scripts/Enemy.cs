@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         face.SetActive(true);
         SpriteRenderer spriteRend = GetComponent<SpriteRenderer>();
+        spriteRend.color = new Color(1f, 0f, 0f, 1f);
         yield return new WaitForSeconds(0.35f);
         spriteRend.color = new Color(1f, 1f, 1f, 1f);
         face.SetActive(false);
