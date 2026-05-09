@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PlayerState { Idle, Running, Attacking }
+public enum PlayerState { Idle, Running, Attacking, Jumping }
 
 public class PlayerStateMachine : MonoBehaviour
 {
@@ -22,10 +22,14 @@ public class PlayerStateMachine : MonoBehaviour
         {
             // Idle can go to any animation
             { PlayerState.Idle, new HashSet<PlayerState>
-                { PlayerState.Running, PlayerState.Attacking }
+                { PlayerState.Running, PlayerState.Attacking, PlayerState.Jumping }
             },
             { PlayerState.Running, new HashSet<PlayerState>
-                { PlayerState.Idle, PlayerState.Attacking }
+                { PlayerState.Idle, PlayerState.Attacking, PlayerState.Jumping }
+            },
+            {
+                PlayerState.Jumping, new HashSet<PlayerState>
+                { PlayerState.Idle, PlayerState.Attacking}
             },
             // Attacking can go only to idle
             { PlayerState.Attacking, new HashSet<PlayerState>
