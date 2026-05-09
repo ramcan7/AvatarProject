@@ -82,7 +82,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HitboxController
   damage: 10
-  knockbackForce: 2
+  knockbackForce: 1
   hitLayers:
     serializedVersion: 2
     m_Bits: 128
